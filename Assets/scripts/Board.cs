@@ -63,7 +63,7 @@ public class Board : MonoBehaviour
     private void ClearPieceAt(int x, int y)
     {
         var pieceToClear = Pieces[x, y];
-        Destroy(pieceToClear.gameObject);
+        Destroy (pieceToClear.gameObject);
         Pieces[x, y] = null;
     }
 
@@ -183,7 +183,7 @@ public class Board : MonoBehaviour
 
     IEnumerator FindMatchRecursivelyCoroutine(List<Piece> collapsedPieces)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.9f);
         List<Piece> newMatches = new List<Piece>();
         collapsedPieces.ForEach(piece =>
         {
@@ -314,18 +314,18 @@ public class Board : MonoBehaviour
 
     public List<Piece> GetMatchByPiece(int xpos, int ypos, int minPieces = 3)
     {
-        var upMatchs = GetMatchByDirection(xpos, ypos, new Vector2(0, 1), 2);
-        var downMatchs = GetMatchByDirection(xpos, ypos, new Vector2(0, -1), 2);
-        var rightMatchs = GetMatchByDirection(xpos, ypos, new Vector2(1, 0), 2);
-        var leftMatchs = GetMatchByDirection(xpos, ypos, new Vector2(-1, 0), 2);
+        var upMatches = GetMatchByDirection(xpos, ypos, new Vector2(0, 1), 2);
+        var downMatches = GetMatchByDirection(xpos, ypos, new Vector2(0, -1), 2);
+        var rightMatches = GetMatchByDirection(xpos, ypos, new Vector2(1, 0), 2);
+        var leftMatches = GetMatchByDirection(xpos, ypos, new Vector2(-1, 0), 2);
 
-        if (upMatchs == null) upMatchs = new List<Piece>();
-        if (downMatchs == null) downMatchs = new List<Piece>();
-        if (rightMatchs == null) rightMatchs = new List<Piece>();
-        if (leftMatchs == null) leftMatchs = new List<Piece>();
+        if (upMatches == null) upMatches = new List<Piece>();
+        if (downMatches == null) downMatches = new List<Piece>();
+        if (rightMatches == null) rightMatches = new List<Piece>();
+        if (leftMatches == null) leftMatches = new List<Piece>();
 
-        var verticalMatches = upMatchs.Union(downMatchs).ToList();
-        var horizontalMatches = leftMatchs.Union(rightMatchs).ToList();
+        var verticalMatches = upMatches.Union(downMatches).ToList();
+        var horizontalMatches = leftMatches.Union(rightMatches).ToList();
 
         var foundMatches = new List<Piece>();
 
