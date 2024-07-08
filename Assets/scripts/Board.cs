@@ -218,12 +218,12 @@ public class Board : MonoBehaviour
         });
         if (newMatches.Count > 0)
         {
-            var newCollapsedPieces = collapsedColumns(GetColumns(newMatches), 0.3f);
+            var newCollapsedPieces = collapsedColumns(GetColumns(newMatches), 0.1f);
             FindMatchRecursively(newCollapsedPieces);
         }
         else
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
             StartCoroutine(SetupPieces());
             swappingPieces = false;
         }
