@@ -662,7 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca0d91034f3142439834bed5a946d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToMatch: 5
+  timeToMatch: 10
   currentTimeToMatch: 0
   gameState: 1
   Points: 0
