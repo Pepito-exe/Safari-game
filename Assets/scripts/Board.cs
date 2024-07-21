@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using UnityEngine;
 
@@ -67,6 +68,26 @@ public class Board : MonoBehaviour
         {
             ClearAllPieces();
         }
+        if(newState == GameManager.GameState.Idle)
+        {
+            ResetBoard();
+            ResetCamera();
+            setupMade = false;
+        }
+    }
+
+    private void ResetBoard()
+    {
+        foreach(Transform item in transform)
+        {
+            Destroy(item.gameObject);
+        }
+    }
+
+    private void ResetCamera()
+    {
+        Camera.main.orthographicSize = 5;
+        Camera.main.transform.position = Vector3.zero;
     }
 
     private IEnumerator SetupPieces()
